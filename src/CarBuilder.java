@@ -53,7 +53,7 @@ public class CarBuilder {
     }
 
     private void buildCar(String car, String type, String drivetrain, int cost, String engineInfo) {
-        if (type.equals())
+        //if (type.equals())
     }
 
     private void giveInfo(String carInfo) {
