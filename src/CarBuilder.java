@@ -52,6 +52,46 @@ public class CarBuilder {
         System.out.println("Your car is a " + color + " " + make + " " + model + "?");*/
     }
 
+    private void buildCar(String car, String type, String drivetrain, int cost, String engineInfo) {
+        if (type.equals())
+    }
+
+    private void giveInfo(String carInfo) {
+        String inf = carInfo;
+        String drivetrain = null;
+        String[] infoArray = new String[9];
+        for (int i = 0; i < 9; i++) {
+            infoArray[i]=inf.substring(0, inf.indexOf(","));
+            inf = inf.substring(inf.indexOf(",")+1);
+        }
+        System.out.println("Car: " + infoArray[0]);
+        System.out.println("Type: " + infoArray[1]);
+        if (Objects.equals(infoArray[2], "0") && Objects.equals(infoArray[3], "0")) {
+            System.out.println("Drivetrain: FWD");
+            drivetrain = "FWD";
+        } else if (Objects.equals(infoArray[2], "1")) {
+            System.out.println("Drivetrain: AWD");
+            drivetrain = "AWD";
+        } else {
+            System.out.println("Drivetrain: RWD");
+            drivetrain = "RWD";
+        }
+        int rough = (Integer.parseInt(infoArray[4]) + Integer.parseInt(infoArray[5]))/2;
+        System.out.println("Rough Cost Estimate: " + rough);
+        String engineInformation = "Engine Info: " + infoArray[6] + " liter, " + infoArray[7] + " cylinder making " + infoArray[8] + " horsepower";
+        System.out.println(engineInformation);
+        System.out.print("\nIs this the car you want to select for your build? (y/n): ");
+        String say = scan.nextLine();
+        if (say.equals("y")) {
+            buildCar(infoArray[0], infoArray[1], drivetrain, rough, engineInformation);
+        } else if (say.equals("n")) {
+            System.out.println("Choose again!");
+        } else {
+            System.out.println("Invalid choice");
+        }
+
+    }
+
     private void searchCar() {
         System.out.print("Enter a title search term: ");
         String input = scan.nextLine();
@@ -79,11 +119,12 @@ public class CarBuilder {
         if (titles.isEmpty()) {
             System.out.println("\nNo car titles match that search term!");
         } else {
-            System.out.print("Which movie would you like to learn more about?\nEnter Number: ");
+            System.out.print("Which car would you like to learn more about?\nEnter Number: ");
             int userInp = scan.nextInt();
             scan.nextLine();
             String name = titles.get(userInp - 1);
-
+            System.out.println();
+            giveInfo(name);
         }
     }
 
