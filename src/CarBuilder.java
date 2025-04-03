@@ -76,7 +76,7 @@ public class CarBuilder {
             System.out.println("Drivetrain: RWD");
             drivetrain = "RWD";
         }
-        int rough = (Integer.parseInt(infoArray[4]) + Integer.parseInt(infoArray[5]))/2;
+        int rough = (int) (1.25*((Integer.parseInt(infoArray[4]) + Integer.parseInt(infoArray[5]))/2));
         System.out.println("Rough Cost Estimate: $" + rough);
         String engineInformation = "Engine Info: " + infoArray[6] + " liter, " + infoArray[7] + " cylinder making " + infoArray[8] + " horsepower";
         System.out.println(engineInformation);
