@@ -53,7 +53,23 @@ public class CarBuilder {
     }
 
     private void buildCar(String car, String type, String drivetrain, int cost, String engineInfo) {
-        //if (type.equals())
+        Car whip;
+        if (type.equals("Sedan")||type.equals("Sports Car")) {
+            whip = new Sedan(car, drivetrain, cost, engineInfo);
+        } else {
+            whip = new SUV(car, drivetrain, cost, engineInfo);
+        }
+        System.out.print("\nBuilding your car");
+        for (int i = 0; i<3; i++) {
+            try {
+                Thread.sleep(1000);
+                System.out.print(".");
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
+        JFrameOne frame = new JFrameOne(whip);
     }
 
     private void giveInfo(String carInfo) {
@@ -76,7 +92,7 @@ public class CarBuilder {
             System.out.println("Drivetrain: RWD");
             drivetrain = "RWD";
         }
-        int rough = (int) (1.25*((Integer.parseInt(infoArray[4]) + Integer.parseInt(infoArray[5]))/2));
+        int rough = (int) (1.30*((Integer.parseInt(infoArray[4]) + Integer.parseInt(infoArray[5]))/2));
         System.out.println("Rough Cost Estimate: $" + rough);
         String engineInformation = "Engine Info: " + infoArray[6] + " liter, " + infoArray[7] + " cylinder making " + infoArray[8] + " horsepower";
         System.out.println(engineInformation);

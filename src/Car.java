@@ -1,26 +1,35 @@
 public class Car {
-    public int price;
+    public int cost;
+    public String engineInfo;
     public int seats;
-    public String make;
-    public String model;
-    public String color;
+    public String name;
+    public String drivetrain;
 
-    public Car(int seats, String make, String model, String color) {
+    public Car(int seats, String name, String drivetrain, int cost, String engineInfo) {
         this.seats = seats;
-        this.make = make;
-        this.model = model;
-        this.color = color;
+        this.name = name;
+        this.drivetrain = drivetrain;
+        this.cost = cost;
+        this.engineInfo = engineInfo;
     }
 
-    public String getMake() {
-        return make;
+    public String getName() {
+        return name;
     }
 
-    public String getModel() {
-        return model;
+    public int getCost() {
+        return cost;
     }
 
-    public String getColor() {
-        return color;
+    public String getEngineInfo() {
+        return engineInfo;
+    }
+
+    public int getSeats() {
+        return seats;
+    }
+
+    public String getDrivetrain() {
+        return drivetrain;
     }
 }
