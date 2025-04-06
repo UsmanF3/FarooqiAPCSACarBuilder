@@ -108,7 +108,7 @@ public class CarBuilder {
     }
 
     private boolean searchCar() {
-        System.out.print("Enter a title search term: ");
+        System.out.print("Enter a car search term (make/model/phrase/etc): ");
         String input = scan.nextLine();
         input = input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
         ArrayList<String> titles = new ArrayList<>();
@@ -132,7 +132,7 @@ public class CarBuilder {
             System.out.println(counter + ": " + title.substring(0, title.indexOf(",")));
         }
         if (titles.isEmpty()) {
-            System.out.println("No car titles match that search term!\n");
+            System.out.println("No cars match that search term!\n");
             return false;
         } else {
             System.out.print("Which car would you like to learn more about?\nEnter Number: ");
