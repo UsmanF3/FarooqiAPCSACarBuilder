@@ -39,7 +39,6 @@ public class DisplayPanel extends JPanel implements ActionListener {
         });
         add(infoButton);
         ImageIcon carImage = new ImageIcon("src/cars/blacksedan.png"); // replace with correct path
-        System.out.println(car.getClass());
         if (car instanceof Sedan) {
             carImage = new ImageIcon("src/cars/" + color + "sedan.png"); // replace with correct path
         } else if (car instanceof SUV) {

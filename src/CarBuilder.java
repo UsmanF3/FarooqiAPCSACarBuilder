@@ -36,8 +36,11 @@ public class CarBuilder {
         System.out.print("Welcome to the Car Builder! Enter your name here: ");
         name = scan.nextLine();
         name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
-        System.out.print("Hi " + name + "!");
-        searchCar();
+        System.out.print("Hi " + name + "! ");
+        boolean bool = false;
+        while (!bool) {
+            bool = searchCar();
+        }
     }
 
     private void buildCar(String car, String type, String drivetrain, int cost, String engineInfo) {
@@ -97,14 +100,15 @@ public class CarBuilder {
             buildCar(infoArray[0], infoArray[1], drivetrain, rough, engineInformation);
         } else if (say.equals("n")) {
             System.out.println("Choose again!");
+            searchCar();
         } else {
             System.out.println("Invalid choice");
         }
 
     }
 
-    private void searchCar() {
-        System.out.print(" Enter a title search term: ");
+    private boolean searchCar() {
+        System.out.print("Enter a title search term: ");
         String input = scan.nextLine();
         input = input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
         ArrayList<String> titles = new ArrayList<>();
@@ -128,7 +132,8 @@ public class CarBuilder {
             System.out.println(counter + ": " + title.substring(0, title.indexOf(",")));
         }
         if (titles.isEmpty()) {
-            System.out.println("\nNo car titles match that search term!");
+            System.out.println("No car titles match that search term!\n");
+            return false;
         } else {
             System.out.print("Which car would you like to learn more about?\nEnter Number: ");
             int userInp = scan.nextInt();
@@ -137,6 +142,7 @@ public class CarBuilder {
             System.out.println();
             giveInfo(name);
         }
+        return true;
     }
 
 }
