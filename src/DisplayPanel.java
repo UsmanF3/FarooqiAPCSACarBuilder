@@ -64,10 +64,10 @@ public class DisplayPanel extends JPanel implements ActionListener {
         g.drawString("Car: " + car.name, 50, 100);
         g.drawString("Seats: " + car.seats, 50, 130);
         g.drawString("Drivetrain: " + car.drivetrain, 50, 160);
-        g.drawString("Cost Estimate $: " + (int) (1.1*car.cost), 50, 190);
+        g.drawString("Cost Estimate : $" + (int) (1.1*car.cost), 50, 190);
         g.drawString(car.engineInfo, 50, 220);
         g.setFont(new Font("Arial", Font.PLAIN, 15));
-        g.drawString(message, 220, 730);
+        g.drawString(message, 205, 730);
 
         // set location of where button gets drawn on the screen
         // (keep in mind +y is DOWN, so this appears UNDER the message)
