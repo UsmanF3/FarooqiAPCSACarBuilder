@@ -38,16 +38,16 @@ public class DisplayPanel extends JPanel implements ActionListener {
             }
         });
         add(infoButton);
-        ImageIcon carImage = new ImageIcon("src/cars/blacksedan.png"); // replace with correct path
+        ImageIcon carImage = new ImageIcon("src/cars/blacksedan.png");
         if (car instanceof Sedan) {
-            carImage = new ImageIcon("src/cars/" + color + "sedan.png"); // replace with correct path
+            carImage = new ImageIcon("src/cars/" + color + "sedan.png"); //choosing color
         } else if (car instanceof SUV) {
-            carImage = new ImageIcon("src/cars/" + color + "suv.png"); // replace with correct path
+            carImage = new ImageIcon("src/cars/" + color + "suv.png"); //choosing color
         } else {
             System.out.println("Everything broke.");
         }
-        Image image = carImage.getImage().getScaledInstance(600, 400, Image.SCALE_SMOOTH); // resize the image to 300x300 pixels
-        carImage = new ImageIcon(image); // wrap it back into ImageIcon
+        Image image = carImage.getImage().getScaledInstance(600, 400, Image.SCALE_SMOOTH);
+        carImage = new ImageIcon(image);
 
         imageLabel = new JLabel(carImage);
         imageLabel.setVisible(false); // initially hidden
@@ -74,7 +74,7 @@ public class DisplayPanel extends JPanel implements ActionListener {
         button.setLocation(450, 680);
         infoButton.setLocation(750, 340);
 
-        imageLabel.setLocation(50, 250); // change as needed
+        imageLabel.setLocation(50, 250);
     }
 
     @Override
