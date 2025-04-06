@@ -30,26 +30,14 @@ public class CarBuilder {
         } catch(IOException exception) {
             System.out.println(exception.getMessage());
         }
-        for (String car : cars) {
-            System.out.println(car);
-        }
     }
 
     private void prompt() {
         System.out.print("Welcome to the Car Builder! Enter your name here: ");
         name = scan.nextLine();
         name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
-        System.out.print("Hi " + name + "! Enter the make (manufacturer) of your car here: ");
+        System.out.print("Hi " + name + "!");
         searchCar();
-        /*make = scan.nextLine();
-        make = make.substring(0, 1).toUpperCase() + make.substring(1).toLowerCase();
-        System.out.print("Enter the model (type) of your car here: ");
-        model = scan.nextLine();
-        model = model.substring(0, 1).toUpperCase() + model.substring(1).toLowerCase();
-        System.out.print("What color is the exterior of your car? Enter here: ");
-        color = scan.nextLine();
-        color = color.substring(0, 1).toUpperCase() + color.substring(1).toLowerCase();
-        System.out.println("Your car is a " + color + " " + make + " " + model + "?");*/
     }
 
     private void buildCar(String car, String type, String drivetrain, int cost, String engineInfo) {
@@ -58,6 +46,13 @@ public class CarBuilder {
             whip = new Sedan(car, drivetrain, cost, engineInfo);
         } else {
             whip = new SUV(car, drivetrain, cost, engineInfo);
+        }
+        System.out.print("\nEnter the color of your car: ");
+        String color = scan.nextLine().toLowerCase();
+        while (!(color.equals("red"))&&!(color.equals("orange"))&&!(color.equals("yellow"))&&!(color.equals("green"))&&!(color.equals("blue"))&&!(color.equals("purple"))&&!(color.equals("pink"))&&!(color.equals("grey"))&&!(color.equals("white"))&&!(color.equals("black"))) {
+            System.out.println("Not a valid color! Try again!");
+            System.out.print("Enter the color of your car: ");
+            color = scan.nextLine().toLowerCase();
         }
         System.out.print("\nBuilding your car");
         for (int i = 0; i<3; i++) {
@@ -69,7 +64,7 @@ public class CarBuilder {
                 return;
             }
         }
-        JFrameOne frame = new JFrameOne(whip);
+        JFrameOne frame = new JFrameOne(whip, color);
     }
 
     private void giveInfo(String carInfo) {
@@ -109,12 +104,12 @@ public class CarBuilder {
     }
 
     private void searchCar() {
-        System.out.print("Enter a title search term: ");
+        System.out.print(" Enter a title search term: ");
         String input = scan.nextLine();
         input = input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
         ArrayList<String> titles = new ArrayList<>();
         for (String car : cars) {
-            if (car.contains(input)) {
+            if (car.toUpperCase().contains(input.toUpperCase())) {
                 titles.add(car);
             }
         }

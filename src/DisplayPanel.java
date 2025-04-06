@@ -19,7 +19,7 @@ public class DisplayPanel extends JPanel implements ActionListener {
             {"The car is conventionally a little less powerful than others, but the lightweight factor makes it up", "Since the car is more compact than others, it has much better handling and control", "Since the car is smaller than others, it's not convenient to seat as many people as others or store items"}
     };
 
-    public DisplayPanel(Car car) {
+    public DisplayPanel(Car car, String color) {
         this.car = car;
         message = "Click the button!";
         // create a new JButton component
@@ -38,8 +38,15 @@ public class DisplayPanel extends JPanel implements ActionListener {
             }
         });
         add(infoButton);
-
         ImageIcon carImage = new ImageIcon("src/cars/blacksedan.png"); // replace with correct path
+        System.out.println(car.getClass());
+        if (car instanceof Sedan) {
+            carImage = new ImageIcon("src/cars/" + color + "sedan.png"); // replace with correct path
+        } else if (car instanceof SUV) {
+            carImage = new ImageIcon("src/cars/" + color + "suv.png"); // replace with correct path
+        } else {
+            System.out.println("Everything broke.");
+        }
         Image image = carImage.getImage().getScaledInstance(600, 400, Image.SCALE_SMOOTH); // resize the image to 300x300 pixels
         carImage = new ImageIcon(image); // wrap it back into ImageIcon
 
